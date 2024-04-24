@@ -1,0 +1,15 @@
+Sign up page-(Teacher or student)
+Email(unique)
+username(unique)
+password
+class (Teacher- multiselect, student- single select)
+Sections
+
+login Teacher-
+Username
+password
+(2 factor auth)
+
+Login Student-
+Username
+password
