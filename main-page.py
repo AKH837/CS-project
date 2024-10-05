@@ -1,3 +1,4 @@
+#Absolute main page of the project
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_lottie import st_lottie
