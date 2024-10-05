@@ -1,3 +1,4 @@
+#General signup page which shows options for student and teacher to sign up
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_lottie import st_lottie
