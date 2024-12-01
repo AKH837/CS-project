@@ -14,6 +14,11 @@ sidebar_css = """
     }
     .css-1d391kg {
         color: #ffffff;  /* Header color */
+        background-color: #1a1a1a;  /* Darker background color */
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
     .css-1d391kg {
         background-color: #1a1a1a;  /* Darker background color */
@@ -154,19 +159,39 @@ with st.sidebar:
         options=["Home",  "Classes", "Profile"],
         icons=["house",  "camera-video", "person"],
         menu_icon="cast",
-        default_index=0,)
-    st.sidebar.markdown('<p style="font-size:14px;">LearnVid is a very useful tool for students as it allows them to clear backlogs and understand a missed concept. Missed a class? we got you covered, Log-in to LearnVid today and boost your learning.'
-                        ' Happy Learning!</p>', unsafe_allow_html=True)
-    st.sidebar.markdown('<p style="font-size:18px;"> DID YOU KNOW?</p>', unsafe_allow_html=True)
-    st.sidebar.markdown('<p style="font-size:15px;"> LearnVid is a website created by two students from Grade 12 as a Computer Science Project!</p>', unsafe_allow_html=True)
-    st.sidebar.markdown('<p style="font-size:13px;"> Who knew it would be a game changer for thousands of students!</p>', unsafe_allow_html=True)
-    st.sidebar.image("A:\Python\pythonProject\LearnVid Logo.png", caption="LearnVid", use_column_width=True)
+        default_index=0,
+        styles={
+            "container": {"padding": "5!important", "background-color": "#1a1a1a"},
+            "icon": {"color": "white", "font-size": "20px"},
+            "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "#004fee"}
+        }
+    )
+    st.sidebar.markdown(
+        '<strong><p style="font-size:14px;">LearnVid is a very useful tool for students as it allows them to clear backlogs and understand a missed concept. Missed a class? we got you covered, Log-in to LearnVid today and boost your learning. Happy Learning!</p></strong>',
+        unsafe_allow_html=True)
+    st.sidebar.markdown('<strong><p style="font-size:18px;">DID YOU KNOW?</p></strong>', unsafe_allow_html=True)
+    st.sidebar.markdown(
+        '<strong><p style="font-size:14px;"> LearnVid is a website created by two students from Grade 12 as a Computer Science Project!</p><strong>',
+        unsafe_allow_html=True)
+    st.sidebar.markdown(
+        '<strong><p style="font-size:14px;">Who knew it would be a game changer for thousands of students!</p></strong>',
+        unsafe_allow_html=True)
+    #st.sidebar.image("A:\Python\pythonProject\LearnVid Logo.png", caption="LearnVid", use_column_width=True)
 
 #-------------Page Selection----------------#
 #-------------Home Page--------------#
-if selected=="Home":
-    st.markdown("<h1 style='text-align: center;'>Hello Student!</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center;'>Welcome to LearnVid</h2>", unsafe_allow_html=True)
+
+# Home Page Section
+if selected == "Home":
+    # Centered titles with improved styling
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="color: #ffffff; font-size: 48px; margin-bottom: 20px;">Hello Student!</h1>
+        <h2 style="color: #ffffff; font-size: 36px; margin-bottom: 30px;">What Our Clients Say</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
     reviews = [
         {
             "name": "John Doe",
@@ -197,30 +222,77 @@ if selected=="Home":
             "photo": "https://via.placeholder.com/80",
             "rating": "⭐⭐⭐⭐⭐",
             "comment": "The best experience I've ever had!"
+        },
+        {
+            "name": "Emily Green",
+            "photo": "https://via.placeholder.com/80",
+            "rating": "⭐⭐⭐⭐⭐",
+            "comment": "A transformative learning experience that exceeded all my expectations!"
         }
     ]
 
 
-    # Function to create a review card
+    # Function to create a review card with improved styling
     def display_review_card(review):
         return f"""
-        <div style="background-color: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; min-width: 250px; flex: 0 0 auto;">
-            <img src="{review['photo']}" style="border-radius: 50%; width: 80px; height: 80px; margin-bottom: 15px;">
-            <h3 style="margin: 10px 0; font-size: 1.2em; text-align: center;">{review['name']}</h3>
-            <div style="color: #FFD700; font-size: 1.5em; text-align: center;">{review['rating']}</div>
-            <p style="font-size: 0.9em; color: #555; text-align: center;">"{review['comment']}"</p>
+        <div style="
+            background-color: rgba(255, 255, 255, 0.1); 
+            border-radius: 15px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            padding: 25px; 
+            width: 100%; 
+            height: 350px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            margin: 10px; /* Added small margin between cards */
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="{review['photo']}" style="
+                border-radius: 50%; 
+                width: 100px; 
+                height: 100px; 
+                margin-bottom: 15px; 
+                border: 3px solid #ffffff;
+            ">
+            <h3 style="
+                margin: 10px 0; 
+                font-size: 1.3em; 
+                color: #ffffff; 
+                font-weight: bold;
+            ">{review['name']}</h3>
+            <div style="
+                color: #FFD700; 
+                font-size: 1.5em; 
+                margin-bottom: 10px;
+            ">{review['rating']}</div>
+            <p style="
+                font-size: 0.9em; 
+                color: #f0f0f0; 
+                text-align: center;
+                line-height: 1.6;
+                padding: 0 10px;
+            ">"{review['comment']}"</p>
         </div>
         """
 
 
-    # Main app
-    st.title("What Our Clients Say")
-
-    # Create a container for the review cards
-    st.markdown(
-        """
-        <div style="display: flex; padding: 10px; max-width: 100%; overflow: hidden;">
-        """, unsafe_allow_html=True)
+    # Create a container for the review cards with precise 3x2 grid layout and gaps
+    st.markdown("""
+    <div style="
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px; /* Increased gap between grid items */
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    ">
+    """, unsafe_allow_html=True)
 
     # Display each review card
     for review in reviews:
@@ -228,13 +300,13 @@ if selected=="Home":
 
     # Close the container
     st.markdown("</div>", unsafe_allow_html=True)
-#-------------Classes Page------------------
 db_config = {
         'host': 'localhost',
         'user': 'root',
         'password': 'askuha2659',
         'database': 'eleven'
     }
+    # -------------Classes Page------------------
 if selected == "Classes":
 
     st.markdown(
