@@ -1,4 +1,3 @@
-#General signup page which shows options for student and teacher to sign up
 import streamlit as st
 import streamlit.components.v1 as com
 from streamlit_lottie import st_lottie
@@ -16,16 +15,12 @@ def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 logo = load_lottiefile("log.json")
-
-
 def navigate_to_teacher():
-    os.system("streamlit run teacher-signup.py")
+    os.system("streamlit run tchsignup.py")
 
 
 def navigate_to_student():
-    os.system("streamlit run student-signup.py")
-
-
+    os.system("streamlit run stsignup.py")
 css = """
 <style>
 div.stApp {
@@ -33,13 +28,17 @@ div.stApp {
     font-weight: bold;
 }
 .stButton > button {
-    background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+    background: linear-gradient(to right, #1e3a8a, #2563eb, #3b82f6);
     color: white;
     font-weight: bold;
     border-radius: 20px;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
     border: 0;
+}
+
+.stButton > button:hover {
+    background-color: #1d4ed8;
 }
 .welcome-text {
     color: white;
@@ -76,4 +75,5 @@ with st.container():
 
     with col2:
         signup_button = st.button("As student", use_container_width=True, on_click=navigate_to_student)
+
 
