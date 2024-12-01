@@ -52,7 +52,7 @@ body {
     font-weight: bold;
 }
 .stButton > button {
-    background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+    background: linear-gradient(to right, #1e3a8a, #2563eb, #3b82f6);
     color: white;
     font-weight: bold;
     border-radius: 20px;
@@ -60,9 +60,11 @@ body {
     transition: background-color 0.3s ease;
     border: 0;
 }
+
 .stButton > button:hover {
-    background-color: #388e3c;
+    background-color: #1d4ed8;
 }
+
 .logo-container {
     display: flex;
     justify-content: center;
@@ -132,8 +134,8 @@ def navigate_to_signup():
 
 
 with st.container():
-    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
-    with col3:
+    col1, col2, col3, col4, col5,col6,col7,col8,col9 = st.columns([1, 1, 1, 1, 1,1,1,1,1])
+    with col5:
         st_lottie(
             logo,
             height=200,
@@ -162,7 +164,7 @@ with st.container():
         st_lottie(
             lottie_coding9,
             height=200,
-            width=200,
+            width=345,
             key="lottie_animation",
         )
         st.write("<h5 class='cln'>Class 9</h2>", unsafe_allow_html=True)
@@ -170,7 +172,7 @@ with st.container():
         st_lottie(
             lottie_coding10,
             height=200,
-            width=200,
+            width=345,
             key="lottie_animation1",
         )
         st.write("<h5 class='clt'>Class 10</h2>", unsafe_allow_html=True)
@@ -179,7 +181,7 @@ with st.container():
         st_lottie(
             lottie_coding11,
             height=200,
-            width=200,
+            width=345,
             key="lottie_animation2",
         )
         st.write("<h5 class='cle'>Class 11</h2>", unsafe_allow_html=True)
@@ -187,7 +189,7 @@ with st.container():
         st_lottie(
             lottie_coding12,
             height=200,
-            width=200,
+            width=345,
             key="lottie_animation3",
         )
         st.write("<h5 class='cltw'>Class 12</h2>", unsafe_allow_html=True)
@@ -195,7 +197,7 @@ with st.container():
         st_lottie(
             lottie_coding,
             height=200,
-            width=200,
+            width=345,
             key="lottie_animation4",
         )
         st.write("<h5 class='cmg'>Coming Soon</h2>", unsafe_allow_html=True)
